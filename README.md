@@ -139,6 +139,7 @@ After MVP completion, you can deploy to Cloudflare Pages.
 | **Phase 1** | Design & documentation | ✅ Complete |
 | **Phase 2** | Design audit | ✅ Complete |
 | **Phase 3** | MVP implementation | ✅ Complete |
+| **Phase 4** | Final polish & deployment | ✅ Complete |
 
 詳細は [docs/development-phases.md](docs/development-phases.md) を参照。
 
@@ -153,6 +154,8 @@ After MVP completion, you can deploy to Cloudflare Pages.
 | [docs/mvp-spec.md](docs/mvp-spec.md) | MVP specification |
 | [docs/development-phases.md](docs/development-phases.md) | Development phases |
 | [docs/audit-phase-2.md](docs/audit-phase-2.md) | Phase 2 audit report |
+| [docs/phase-3-completion.md](docs/phase-3-completion.md) | Phase 3 completion report |
+| [docs/final-polish-and-deploy-phase-4.md](docs/final-polish-and-deploy-phase-4.md) | Phase 4 final polish & deploy report |
 
 ---
 
