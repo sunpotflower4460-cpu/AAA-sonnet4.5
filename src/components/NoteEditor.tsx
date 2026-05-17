@@ -57,7 +57,7 @@ export function NoteEditor({ note, onUpdate, onDelete, onBack }: NoteEditorProps
       <div className="flex items-center justify-between mb-34">
         <button
           onClick={onBack}
-          className="text-sumi hover:text-indigo transition-colors duration-300"
+          className="text-sumi hover:text-indigo active:text-indigo transition-colors duration-300 p-2 -ml-2"
           aria-label={copy.backLabel}
         >
           <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
@@ -65,7 +65,7 @@ export function NoteEditor({ note, onUpdate, onDelete, onBack }: NoteEditorProps
           </svg>
         </button>
 
-        <div className="flex items-center gap-21">
+        <div className="flex items-center gap-13">
           {/* Save Status */}
           {saveStatus === "saved" && (
             <div className="text-xs text-ink-muted animate-fade-in">
@@ -76,8 +76,8 @@ export function NoteEditor({ note, onUpdate, onDelete, onBack }: NoteEditorProps
           {/* Favorite Button */}
           <button
             onClick={handleFavoriteToggle}
-            className={`text-2xl transition-all duration-300 ${
-              isFavorite ? "text-gold scale-110" : "text-ink-muted hover:text-gold"
+            className={`text-2xl transition-all duration-300 p-2 ${
+              isFavorite ? "text-gold scale-110" : "text-ink-muted hover:text-gold active:scale-95"
             }`}
             aria-label={copy.favoriteLabel}
           >
@@ -87,7 +87,7 @@ export function NoteEditor({ note, onUpdate, onDelete, onBack }: NoteEditorProps
           {/* Delete Button */}
           <button
             onClick={handleDelete}
-            className="text-vermilion hover:text-opacity-80 transition-colors duration-300"
+            className="text-vermilion hover:text-opacity-80 active:text-opacity-60 transition-colors duration-300 p-2"
             aria-label={copy.deleteLabel}
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">

@@ -59,7 +59,7 @@ export function NotesList({ notes, onSelectNote, onNewNote }: NotesListProps) {
       {filteredAndSortedNotes.length === 0 ? (
         searchQuery ? (
           <div className="text-center py-34 text-ink-muted">
-            見つかりませんでした。
+            {copy.searchEmpty}
           </div>
         ) : (
           <EmptyState onNewNote={onNewNote} />
@@ -80,7 +80,7 @@ export function NotesList({ notes, onSelectNote, onNewNote }: NotesListProps) {
       {notes.length > 0 && (
         <button
           onClick={onNewNote}
-          className="fixed bottom-34 right-21 w-55 h-55 bg-gold text-washi rounded-full shadow-lg hover:scale-105 transition-transform duration-300 flex items-center justify-center text-2xl"
+          className="fixed bottom-34 right-21 w-55 h-55 bg-gold text-washi rounded-full shadow-lg hover:scale-105 active:scale-95 transition-transform duration-300 flex items-center justify-center text-2xl font-light"
           aria-label={copy.newNote}
         >
           +

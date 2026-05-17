@@ -23,7 +23,7 @@ export function EmptyState({ onNewNote }: EmptyStateProps) {
       
       <button
         onClick={onNewNote}
-        className="px-34 py-13 bg-indigo text-washi rounded-lg hover:bg-opacity-90 transition-all duration-300"
+        className="px-34 py-13 bg-indigo text-washi rounded-lg hover:bg-opacity-90 active:bg-opacity-80 transition-all duration-300 min-h-[44px]"
       >
         {copy.emptyAction}
       </button>
