@@ -8,15 +8,10 @@ import { NoteEditor } from "./components/NoteEditor";
 type View = "list" | "editor";
 
 function App() {
-  const [notes, setNotes] = useState<Note[]>([]);
+  // Load notes on mount using lazy initializer
+  const [notes, setNotes] = useState<Note[]>(() => loadNotes());
   const [currentView, setCurrentView] = useState<View>("list");
   const [currentNote, setCurrentNote] = useState<Note | null>(null);
-
-  // Load notes on mount
-  useEffect(() => {
-    const loadedNotes = loadNotes();
-    setNotes(loadedNotes);
-  }, []);
 
   // Save notes whenever they change
   useEffect(() => {
