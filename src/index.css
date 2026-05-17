@@ -1,0 +1,77 @@
+@import "tailwindcss";
+
+@theme {
+  --color-washi: #F7F1E5;
+  --color-paper: #FBF8F1;
+  --color-sumi: #1F1B18;
+  --color-ink-muted: #5F5750;
+  --color-gold: #C9A646;
+  --color-indigo: #243B53;
+  --color-vermilion: #B14A36;
+  --color-line: rgba(31, 27, 24, 0.12);
+  --color-shadow: rgba(31, 27, 24, 0.08);
+}
+
+:root {
+  --color-washi: #F7F1E5;
+  --color-paper: #FBF8F1;
+  --color-sumi: #1F1B18;
+  --color-ink-muted: #5F5750;
+  --color-gold: #C9A646;
+  --color-indigo: #243B53;
+  --color-vermilion: #B14A36;
+  --color-line: rgba(31, 27, 24, 0.12);
+  --color-shadow: rgba(31, 27, 24, 0.08);
+}
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
+  color: var(--color-sumi);
+  background-color: var(--color-washi);
+  line-height: 1.618;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+#root {
+  min-height: 100vh;
+}
+
+button {
+  font-family: inherit;
+  cursor: pointer;
+}
+
+input, textarea {
+  font-family: inherit;
+}
+
+textarea {
+  resize: none;
+}
+
+.line-clamp-3 {
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+}
+
+.animate-fade-in {
+  animation: fadeIn 0.3s ease-in;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
