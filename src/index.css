@@ -33,14 +33,53 @@ body {
   padding: 0;
   font-family: "Hiragino Sans", "Noto Sans JP", system-ui, sans-serif;
   color: var(--color-sumi);
-  background-color: var(--color-washi);
+  background: linear-gradient(135deg, #F7F1E5 0%, #FBF8F1 50%, #F7F1E5 100%);
+  background-attachment: fixed;
   line-height: 1.618;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  position: relative;
+}
+
+/* Subtle paper texture overlay */
+body::before {
+  content: "";
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-image: 
+    repeating-linear-gradient(
+      0deg,
+      transparent,
+      transparent 2px,
+      rgba(31, 27, 24, 0.01) 2px,
+      rgba(31, 27, 24, 0.01) 4px
+    );
+  pointer-events: none;
+  z-index: 1;
+}
+
+/* Enso circle watermark */
+body::after {
+  content: "";
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: min(80vw, 500px);
+  height: min(80vw, 500px);
+  border: 1px solid rgba(31, 27, 24, 0.03);
+  border-radius: 50%;
+  pointer-events: none;
+  z-index: 1;
 }
 
 #root {
   min-height: 100vh;
+  position: relative;
+  z-index: 2;
 }
 
 button {
@@ -64,14 +103,46 @@ textarea {
 }
 
 .animate-fade-in {
-  animation: fadeIn 0.3s ease-in;
+  animation: fadeIn 0.4s ease-out;
 }
 
 @keyframes fadeIn {
   from {
     opacity: 0;
+    transform: translateY(-8px);
   }
   to {
     opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-slide-up {
+  animation: slideUp 0.4s ease-out;
+}
+
+@keyframes slideUp {
+  from {
+    opacity: 0;
+    transform: translateY(21px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.animate-scale-in {
+  animation: scaleIn 0.3s ease-out;
+}
+
+@keyframes scaleIn {
+  from {
+    opacity: 0;
+    transform: scale(0.95);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
   }
 }

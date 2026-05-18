@@ -52,23 +52,24 @@ export function NoteEditor({ note, onUpdate, onDelete, onBack }: NoteEditorProps
   };
 
   return (
-    <div className="max-w-[720px] mx-auto px-21 py-34 min-h-screen flex flex-col">
+    <div className="max-w-[720px] mx-auto px-21 py-55 min-h-screen flex flex-col animate-scale-in">
       {/* Header Bar */}
-      <div className="flex items-center justify-between mb-34">
+      <div className="flex items-center justify-between mb-55">
         <button
           onClick={onBack}
-          className="text-sumi hover:text-indigo active:text-indigo transition-colors duration-300 p-2 -ml-2"
+          className="text-sumi hover:text-indigo active:text-indigo transition-all duration-300 p-2 -ml-2 hover:scale-110 active:scale-95"
           aria-label={copy.backLabel}
         >
-          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+          <svg className="w-6 h-6" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+            <path strokeLinecap="round" strokeLinejoin="round" d="M15 19l-7-7 7-7" />
           </svg>
         </button>
 
-        <div className="flex items-center gap-13">
+        <div className="flex items-center gap-21">
           {/* Save Status */}
           {saveStatus === "saved" && (
-            <div className="text-xs text-ink-muted animate-fade-in">
+            <div className="text-xs text-ink-muted animate-fade-in flex items-center gap-2">
+              <span className="inline-block w-1.5 h-1.5 rounded-full bg-gold animate-pulse"></span>
               {copy.saved}
             </div>
           )}
@@ -76,8 +77,10 @@ export function NoteEditor({ note, onUpdate, onDelete, onBack }: NoteEditorProps
           {/* Favorite Button */}
           <button
             onClick={handleFavoriteToggle}
-            className={`text-2xl transition-all duration-300 p-2 ${
-              isFavorite ? "text-gold scale-110" : "text-ink-muted hover:text-gold active:scale-95"
+            className={`text-3xl transition-all duration-400 p-2 -m-2 ${
+              isFavorite 
+                ? "text-gold scale-110" 
+                : "text-ink-muted hover:text-gold hover:scale-110 active:scale-95"
             }`}
             aria-label={copy.favoriteLabel}
           >
@@ -87,11 +90,11 @@ export function NoteEditor({ note, onUpdate, onDelete, onBack }: NoteEditorProps
           {/* Delete Button */}
           <button
             onClick={handleDelete}
-            className="text-vermilion hover:text-opacity-80 active:text-opacity-60 transition-colors duration-300 p-2"
+            className="text-vermilion hover:text-opacity-80 hover:scale-110 active:scale-95 transition-all duration-300 p-2 -m-2"
             aria-label={copy.deleteLabel}
           >
-            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-              <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
+            <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={1.5}>
+              <path strokeLinecap="round" strokeLinejoin="round" d="M19 7l-.867 12.142A2 2 0 0116.138 21H7.862a2 2 0 01-1.995-1.858L5 7m5 4v6m4-6v6m1-10V4a1 1 0 00-1-1h-4a1 1 0 00-1 1v3M4 7h16" />
             </svg>
           </button>
         </div>
@@ -103,7 +106,7 @@ export function NoteEditor({ note, onUpdate, onDelete, onBack }: NoteEditorProps
         value={title}
         onChange={(e) => setTitle(e.target.value)}
         placeholder={copy.titlePlaceholder}
-        className="w-full text-2xl font-serif text-sumi bg-transparent border-none outline-none mb-21 placeholder:text-ink-muted"
+        className="w-full text-3xl font-serif text-sumi bg-transparent border-none outline-none mb-34 placeholder:text-ink-muted placeholder:opacity-50 leading-relaxed focus:placeholder:opacity-30 transition-all"
         aria-label="Note title"
       />
 
@@ -112,8 +115,9 @@ export function NoteEditor({ note, onUpdate, onDelete, onBack }: NoteEditorProps
         value={body}
         onChange={(e) => setBody(e.target.value)}
         placeholder={copy.bodyPlaceholder}
-        className="w-full flex-1 text-sumi bg-transparent border-none outline-none placeholder:text-ink-muted leading-relaxed"
+        className="w-full flex-1 text-base text-sumi bg-transparent border-none outline-none placeholder:text-ink-muted placeholder:opacity-50 leading-loose focus:placeholder:opacity-30 transition-all"
         aria-label="Note body"
+        style={{ minHeight: '300px' }}
       />
     </div>
   );
